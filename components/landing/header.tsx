@@ -7,7 +7,7 @@ import { useState } from "react";
 const menuItems = [
   { label: "Features", href: "#PLACEHOLDER_FEATURES" },
   { label: "Downloads", href: "#PLACEHOLDER_DOWNLOADS" },
-  { label: "Billing", href: "#faq" },
+  { label: "Checkout", href: "/checkout" },
   { label: "FAQ", href: "#faq" },
   { label: "Company", href: "https://opencrafts.io/" },
 ] as const;
