@@ -1,4 +1,3 @@
-import "@heroui/react";
 import { Footer } from "@/components/landing/footer";
 import { FAQ } from "@/components/landing/faq";
 import { Stats } from "@/components/landing/stats";

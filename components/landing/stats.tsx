@@ -1,7 +1,3 @@
-"use client";
-
-import { Card } from "@heroui/react";
-
 const stats = [
   {
     id: "students",
@@ -38,19 +34,18 @@ export function Stats() {
 
       <div className="mx-auto grid w-fit grid-cols-1 justify-items-center gap-2 sm:grid-cols-2">
         {stats.map(({ id, stat, title, cta }) => (
-          <Card key={id} variant="tertiary" className="w-80">
-            <Card.Header>
-              <p className="text-4xl sm:text-5xl font-bold text-gray-400">
+          <article
+            key={id}
+            className="flex w-80 flex-col gap-4 rounded-xl border border-border bg-secondary p-6 text-secondary-foreground"
+          >
+            <header>
+              <p className="text-4xl font-bold text-muted-foreground sm:text-5xl">
                 {stat}
               </p>
-            </Card.Header>
-            <Card.Description>
-              <p className="text-lg font-semibold text-gray-900">{title}</p>
-            </Card.Description>
-            <Card.Footer>
-              <p className="text-sm text-gray-500">{cta}</p>
-            </Card.Footer>
-          </Card>
+            </header>
+            <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+            <p className="text-sm text-muted-foreground">{cta}</p>
+          </article>
         ))}
       </div>
     </section>

@@ -225,9 +225,13 @@ export function CheckoutPage({ code, preview = false }: CheckoutPageProps) {
       <header className="border-b border-border bg-card/90 backdrop-blur-xl">
         <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-5">
           <Link href="/" className="flex items-center gap-2" aria-label="Academia home">
-            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-[10px] font-semibold text-primary-foreground">
-              A
-            </span>
+            <Image
+              src="/academia.png"
+              alt=""
+              width={938}
+              height={1064}
+              className="size-7 object-contain"
+            />
             <span className="text-sm font-semibold tracking-tight">Academia</span>
           </Link>
           <span className="text-xs text-muted-foreground">{preview ? "Preview" : "Checkout"}</span>

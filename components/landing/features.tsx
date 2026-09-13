@@ -1,5 +1,3 @@
-import { Card, CardHeader } from "@heroui/react";
-
 interface Feature {
   title: string;
   description: string;
@@ -58,7 +56,7 @@ function FeatureCard({ feature }: { feature: Feature }) {
   }[feature.rotation];
 
   return (
-    <Card
+    <article
       className={`
         sticky top-4
         mb-24
@@ -66,27 +64,28 @@ function FeatureCard({ feature }: { feature: Feature }) {
         w-full
         rounded-[20px]
         border
-        border-default-200
+        border-border
+        bg-card
+        text-card-foreground
         ${rotationClass}
       `}
-      variant="default"
     >
-      <CardHeader className="block px-10 pt-20 pb-0">
-        <h3 className="text-xl font-bold text-gray-600">{feature.title}</h3>
+      <div className="px-10 pt-20 pb-0">
+        <h3 className="text-xl font-bold text-foreground">{feature.title}</h3>
 
-        <p className="mt-2 max-w-3xl text-base leading-relaxed text-default-500 text-gray-400">
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-muted-foreground">
           {feature.description}
         </p>
-      </CardHeader>
+      </div>
 
       <ul className="grid grid-cols-2 gap-x-16 gap-y-3 px-12 text-sm">
         {feature.items.map((item) => (
-          <li key={item} className="text-default-foreground font-semibold">
+          <li key={item} className="font-semibold text-foreground">
             {item}
           </li>
         ))}
       </ul>
-    </Card>
+    </article>
   );
 }
 

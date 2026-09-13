@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Link } from "@heroui/react";
+import Link from "next/link";
 
 const footerLinks = {
   Company: [
@@ -22,21 +22,22 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-content2">
+    <footer className="bg-secondary">
       <div className="mx-auto max-w-5xl px-6 py-12">
         {/* Brand + navigation */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-4">
           {/* Brand */}
-          <div>
+          <Link href="/" className="inline-flex items-center gap-3" aria-label="Academia home">
             <Image
-              src="/logo.png"
-              alt="Academia"
-              width={100}
-              height={32}
-              className="h-auto w-auto"
+              src="/academia.png"
+              alt=""
+              width={938}
+              height={1064}
+              className="h-11 w-11 object-contain"
               priority={false}
             />
-          </div>
+            <span className="text-lg font-semibold text-foreground">Academia</span>
+          </Link>
 
           {/* Link groups */}
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -51,9 +52,7 @@ export function Footer() {
                   <Link
                     key={label}
                     href={href}
-                    // size="sm"
-                    // color="foreground"
-                    // underline="hover"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
                     {label}
                   </Link>
@@ -64,7 +63,7 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col gap-4 font-medium text-default-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; 2025 Academia. All rights reserved.</p>
 
           <p>
