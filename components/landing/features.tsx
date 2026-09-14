@@ -91,7 +91,7 @@ function FeatureCard({ feature }: { feature: Feature }) {
 
 export default function Features() {
   return (
-    <section className="w-full px-6 py-24" aria-labelledby="features-heading">
+    <section id="features" className="w-full px-6 py-24" aria-labelledby="features-heading">
       <div className="mx-auto max-w-225 text-center">
         <h2
           id="features-heading"

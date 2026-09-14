@@ -1,22 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteLinks } from "@/lib/site-links";
 
 const footerLinks = {
   Company: [
-    { label: "Support Us", href: "/support" },
-    { label: "Affiliates", href: "/affiliates" },
+    { label: "Open Crafts", href: siteLinks.company },
   ],
   Downloads: [
-    { label: "For iPhone", href: "/downloads/ios" },
-    { label: "For Android", href: "/downloads/android" },
-    { label: "For Mac (Soon)", href: "#" },
-    { label: "For Windows (Soon)", href: "#" },
+    { label: "For iPhone", href: siteLinks.appStore },
+    { label: "For Android", href: siteLinks.playStore },
   ],
   Socials: [
-    { label: "Github", href: "https://github.com/opencrafts-io" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "Twitter/X", href: "#" },
+    { label: "GitHub", href: siteLinks.github },
+    { label: "Instagram", href: siteLinks.instagram },
+    { label: "TikTok", href: siteLinks.tiktok },
   ],
 } as const;
 

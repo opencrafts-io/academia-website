@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "react-aria-components";
+import { siteLinks } from "@/lib/site-links";
 
 const menuItems = [
-  { label: "Features", href: "#PLACEHOLDER_FEATURES" },
-  { label: "Downloads", href: "#PLACEHOLDER_DOWNLOADS" },
+  { label: "Features", href: "#features" },
+  { label: "Downloads", href: "#downloads" },
   { label: "Checkout", href: "/checkout" },
   { label: "FAQ", href: "#faq" },
-  { label: "Company", href: "https://opencrafts.io/" },
+  { label: "Company", href: siteLinks.company },
 ] as const;
 
 export default function Header() {
@@ -53,9 +54,12 @@ export default function Header() {
               </Link>
             ))}
 
-            <Button className="ml-2 rounded-lg bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+            <Link
+              href="#downloads"
+              className="ml-2 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
               Download App
-            </Button>
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -105,12 +109,13 @@ export default function Header() {
               </Link>
             ))}
 
-            <Button
-              className="mt-3 w-full rounded-lg bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              onPress={() => setIsMenuOpen(false)}
+            <Link
+              href="#downloads"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
               Download App
-            </Button>
+            </Link>
           </nav>
         </div>
       )}

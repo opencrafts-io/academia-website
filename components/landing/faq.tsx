@@ -38,6 +38,7 @@ const faqs = [
 export function FAQ() {
   return (
     <section
+      id="faq"
       aria-labelledby="faq-heading"
       className="mx-auto w-full max-w-3xl px-6 py-20"
     >
