@@ -61,7 +61,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 flex flex-col gap-4 font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; 2025 Academia. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Academia. All rights reserved.</p>
 
           <p>
             Made with <span aria-label="love">❤️‍🔥</span> by Open Crafts
