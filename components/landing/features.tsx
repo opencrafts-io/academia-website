@@ -7,42 +7,40 @@ interface Feature {
 
 const featureSections: readonly Feature[] = [
   {
-    title: "Easy school life and we guarantee it.",
+    title: "Keep your semester together",
     description:
-      "We believe that music should be more than just background noise—it should be an experience. Our commitment to Hi-Fi streaming delivers sound with unparalleled clarity, ensuring you hear music as it was meant to be heard.",
+      "Your classes, tasks, study plans, and important dates deserve a better home than six group chats and a screenshot you can’t find.",
     items: [
-      "Lossless Streaming",
-      "Adaptive Bitrate",
-      "Spatial Audio",
-      "Custom EQ Settings",
-      "High-Rez Audio Support",
-      "No Audio Ads",
+      "Classes",
+      "To-dos",
+      "Study cards",
+      "Reminders",
+      "Your schedule",
+      "Less chaos",
     ],
     rotation: "none",
   },
   {
-    title: "UI Algorithm That Knows You",
+    title: "Find your campus people",
     description:
-      "Our intelligent user interface algorithm doesn’t just adapt light and dark mode—it learns your unique tastes and evolves with you. Academia's AI-driven recommendations are designed to feel like they know you personally, introducing you to new moods and colors.",
+      "Ask a question, share what you know, and see what’s happening around you. Your university is more than a timetable.",
     items: [
-      "Behavioral Learning",
-      "Mood-Based Themes",
-      "Smart Curation",
-      "Contextual themes",
+      "Student posts",
+      "Communities",
+      "Campus conversations",
+      "Shared advice",
     ],
     rotation: "left",
   },
   {
-    title: "Fair Pay to Artists",
+    title: "Make studying feel possible",
     description:
-      "At Rhythmiq, we believe that great music deserves fair compensation. We’ve built our platform on the principle of fair pay to ensure that artists are rewarded justly for their work, fostering a sustainable and thriving music ecosystem.",
+      "Break the big stuff into smaller steps. Save what matters, revisit it with study cards, and get back on track when the semester gets loud.",
     items: [
-      "Transparent Revenue Sharing",
-      "Direct Artist Support",
-      "Artist-Centric Payment",
-      "Higher Payout Rates",
-      "Independent Artist Promotion",
-      "Real-Time Analytics",
+      "Study cards",
+      "Focus time",
+      "Course resources",
+      "Your own pace",
     ],
     rotation: "right",
   },
@@ -59,7 +57,8 @@ function FeatureCard({ feature }: { feature: Feature }) {
     <article
       className={`
         sticky top-4
-        mb-24
+        mb-12
+        flex flex-col
         min-h-100
         w-full
         rounded-[20px]
@@ -70,15 +69,15 @@ function FeatureCard({ feature }: { feature: Feature }) {
         ${rotationClass}
       `}
     >
-      <div className="px-10 pt-20 pb-0">
-        <h3 className="text-xl font-bold text-foreground">{feature.title}</h3>
+      <div className="px-8 pt-20 pb-0">
+        <h3 className="text-xl font-semibold text-foreground">{feature.title}</h3>
 
         <p className="mt-2 max-w-3xl text-base leading-relaxed text-muted-foreground">
           {feature.description}
         </p>
       </div>
 
-      <ul className="grid grid-cols-2 gap-x-16 gap-y-3 px-12 text-sm">
+      <ul className="mt-8 mb-12 grid grid-cols-2 gap-x-6 gap-y-3 px-8 text-sm sm:gap-x-16 sm:px-20">
         {feature.items.map((item) => (
           <li key={item} className="font-semibold text-foreground">
             {item}
@@ -97,8 +96,11 @@ export default function Features() {
           id="features-heading"
           className="text-4xl font-semibold leading-tight"
         >
-          The Smart, Fair, and best way to tackle school life
+          With you for all your school seasons.
         </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
+          Some weeks you’re ahead. Some weeks you’re surviving on vibes and a deadline reminder. Academia is built for both.
+        </p>
       </div>
 
       <div className="mx-auto mt-16 max-w-182.5">
