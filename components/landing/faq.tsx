@@ -1,4 +1,12 @@
-import { Accordion, AccordionItem } from "@heroui/react";
+"use client";
+
+import {
+  Button,
+  Disclosure,
+  DisclosureGroup,
+  DisclosurePanel,
+  Heading,
+} from "react-aria-components";
 
 const faqs = [
   {
@@ -30,32 +38,43 @@ const faqs = [
 export function FAQ() {
   return (
     <section
+      id="faq"
       aria-labelledby="faq-heading"
       className="mx-auto w-full max-w-3xl px-6 py-20"
     >
-      <h2
-        id="faq-heading"
-        className="mb-12 text-center text-6xl sm:text-3xl font-semibold text-gray-800"
-      >
+      <h2 id="faq-heading" className="mb-12 text-center text-3xl font-semibold text-foreground sm:text-4xl">
         Common Questions
       </h2>
 
-      <Accordion variant="surface" className="px-0">
+      <DisclosureGroup
+        allowsMultipleExpanded={false}
+        className="divide-y divide-border rounded-xl border border-border bg-card px-5"
+      >
         {faqs.map(({ key, question, answer }) => (
-          <AccordionItem key={key}>
-            <Accordion.Heading>
-              <Accordion.Trigger>
-                {question} <Accordion.Indicator />
-              </Accordion.Trigger>
-            </Accordion.Heading>
-            <Accordion.Panel>
-              <Accordion.Body>{answer}</Accordion.Body>
-            </Accordion.Panel>
-
-            {/* <p className="max-w-3xl text-sm text-default-500">{answer}</p> */}
-          </AccordionItem>
+          <Disclosure key={key} id={key} className="group">
+            <Heading level={3} className="m-0">
+              <Button
+                slot="trigger"
+                className="flex w-full items-center justify-between gap-4 py-5 text-left text-base font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+              >
+                <span>{question}</span>
+                <span
+                  aria-hidden="true"
+                  className="text-xl leading-none text-muted-foreground transition-transform group-data-[expanded]:rotate-45"
+                >
+                  +
+                </span>
+              </Button>
+            </Heading>
+            <DisclosurePanel
+              role="region"
+              className="pb-5 pr-8 text-sm leading-6 text-muted-foreground"
+            >
+              {answer}
+            </DisclosurePanel>
+          </Disclosure>
         ))}
-      </Accordion>
+      </DisclosureGroup>
     </section>
   );
 }

@@ -1,42 +1,40 @@
 import Image from "next/image";
-import { Link } from "@heroui/react";
+import Link from "next/link";
+import { siteLinks } from "@/lib/site-links";
 
 const footerLinks = {
   Company: [
-    { label: "Support Us", href: "/support" },
-    { label: "Affiliates", href: "/affiliates" },
+    { label: "Open Crafts", href: siteLinks.company },
   ],
   Downloads: [
-    { label: "For iPhone", href: "/downloads/ios" },
-    { label: "For Android", href: "/downloads/android" },
-    { label: "For Mac (Soon)", href: "#" },
-    { label: "For Windows (Soon)", href: "#" },
+    { label: "For iPhone", href: siteLinks.appStore },
+    { label: "For Android", href: siteLinks.playStore },
   ],
   Socials: [
-    { label: "Github", href: "https://github.com/opencrafts-io" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "Twitter/X", href: "#" },
+    { label: "GitHub", href: siteLinks.github },
+    { label: "Instagram", href: siteLinks.instagram },
+    { label: "TikTok", href: siteLinks.tiktok },
   ],
 } as const;
 
 export function Footer() {
   return (
-    <footer className="bg-content2">
+    <footer className="bg-secondary">
       <div className="mx-auto max-w-5xl px-6 py-12">
         {/* Brand + navigation */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-4">
           {/* Brand */}
-          <div>
+          <Link href="/" className="inline-flex items-center gap-3" aria-label="Academia home">
             <Image
-              src="/logo.png"
-              alt="Academia"
-              width={100}
-              height={32}
-              className="h-auto w-auto"
+              src="/academia.png"
+              alt=""
+              width={938}
+              height={1064}
+              className="h-11 w-11 object-contain"
               priority={false}
             />
-          </div>
+            <span className="text-lg font-semibold text-foreground">Academia</span>
+          </Link>
 
           {/* Link groups */}
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -51,9 +49,7 @@ export function Footer() {
                   <Link
                     key={label}
                     href={href}
-                    // size="sm"
-                    // color="foreground"
-                    // underline="hover"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
                     {label}
                   </Link>
@@ -64,8 +60,8 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col gap-4 font-medium text-default-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; 2025 Academia. All rights reserved.</p>
+        <div className="mt-12 flex flex-col gap-4 font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {new Date().getFullYear()} Academia. All rights reserved.</p>
 
           <p>
             Made with <span aria-label="love">❤️‍🔥</span> by Open Crafts
