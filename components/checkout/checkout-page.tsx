@@ -59,12 +59,12 @@ type CheckoutState =
       items: CheckoutOrderItem[];
     };
 
-function formatAmount(amount: number, currency: string) {
+function formatAmount(amountInCents: number, currency: string) {
   return new Intl.NumberFormat("en-KE", {
     style: "currency",
     currency: currency || "KES",
     maximumFractionDigits: currency === "KES" ? 0 : 2,
-  }).format(amount);
+  }).format(amountInCents / 100);
 }
 
 function formatPhone(phone: string) {
@@ -83,9 +83,9 @@ const previewOrder: CheckoutOrder = {
   currency: "KES",
   discount: 0,
   status: "pending",
-  subtotal: 350,
+  subtotal: 35000,
   tax: 0,
-  total: 350,
+  total: 35000,
 };
 
 const previewItems: CheckoutOrderItem[] = [
@@ -93,7 +93,7 @@ const previewItems: CheckoutOrderItem[] = [
     id: "ITEM-PREVIEW",
     plan_id: 1,
     quantity: 1,
-    unit_price: 350,
+    unit_price: 35000,
     discount: 0,
     tax: 0,
   },
@@ -265,15 +265,11 @@ export function CheckoutPage({ code, preview = false }: CheckoutPageProps) {
 
                 <div className="mt-7 space-y-3 border-t border-border pt-4 text-sm">
                   <SummaryRow label="Subtotal" value={formatAmount(order.subtotal, order.currency)} />
-                  {order.discount > 0 ? (
-                    <SummaryRow
-                      label="Discount"
-                      value={`−${formatAmount(order.discount, order.currency)}`}
-                    />
-                  ) : null}
-                  {order.tax > 0 ? (
-                    <SummaryRow label="Tax" value={formatAmount(order.tax, order.currency)} />
-                  ) : null}
+                  <SummaryRow
+                    label="Discount"
+                    value={`${order.discount > 0 ? "−" : ""}${formatAmount(order.discount, order.currency)}`}
+                  />
+                  <SummaryRow label="Tax" value={formatAmount(order.tax, order.currency)} />
                 </div>
 
                 <div className="mt-4 flex items-center justify-between border-t border-border pt-4 text-sm font-medium">

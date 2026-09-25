@@ -13,6 +13,7 @@ export type CheckoutToken = {
   token_type: string;
 };
 
+// Monetary fields in checkout responses are represented in cents.
 export type CheckoutOrder = {
   id: string;
   currency: string;
